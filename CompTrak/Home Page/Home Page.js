@@ -1,7 +1,7 @@
 let userId = sessionStorage.getItem("userId");
-if (!userId) {
-    window.location = ACTIVE_DIR + LOGIN_HTML;
-}
+// if (!userId) {
+//     window.location = ACTIVE_DIR + LOGIN_HTML;
+// }
 
 let tournaments = [];
 makeRequest("GET", ACTIVE_URL + API_CALLER + GET_TOURNAMENT + userId).then((value) => {
