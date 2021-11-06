@@ -4,8 +4,15 @@
       <script src="../Constants/Constants.js"></script>
       <script>
         const redirect_url = ACTIVE_DIR + HOME_HTML;
-        const url_params = location.href.split("#")[1];
-        // window.location = redirect_url + "#" + url_params;
+        const url_params;
+        if(location.href.includes("#")) {
+          // Implicit Flow
+          url_params = "#" + location.href.split("#")[1];
+        } else {
+          // Code Flow
+          url_params = "?" + location.href.split("?")[1];
+        }
+        window.location = redirect_url + url_params;
       </script>
 
     </head>
