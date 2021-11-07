@@ -17,6 +17,7 @@ function makeRequest(method, url, body) {
             }
         }
         req.open(method, url);
+        req.setRequestHeader('Access-Control-Allow-Origin', '*');
         if (body) {
             req.setRequestHeader('Content-Type', 'application/json');
         }
