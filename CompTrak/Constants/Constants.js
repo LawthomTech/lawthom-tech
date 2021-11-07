@@ -14,15 +14,15 @@ const BASE_URL = "http://35.234.133.160:8081";
 const ACTIVE_URL = BASE_URL;
 const API_CALLER = "/JavaEE-Project-JackLawthom/api";
 
-const CRT_TOURNAMENT = "/Tournament/create";
-const DEL_TOURNAMENT = "/Tournament/delete/";
+const CRT_TOURNAMENT = "https://o86nrv235g";
+const DEL_TOURNAMENT = "https://qbsi45jdv4";
 const UPD_TOURNAMENT = "/Tournament/update/";
-const GET_TOURNAMENT = "/Tournament/getUserTournaments/";
+const GET_TOURNAMENT = "https://v5vx7rx4s5";
 
-const CRT_MATCH = "/Match/create";
+const CRT_MATCH = "https://dby1vipvh6";
 const DEL_MATCH = "/Match/delete/";
-const UPD_MATCH = "/Match/update/";
-const GET_MATCH = "/Match/getTournamentMatches/";
+const UPD_MATCH = "https://8dffjixrt8";
+const GET_MATCH = "https://5mvewi1zdh";
 
 const CRT_USER = "/User/create";
 const DEL_USER = "/User/delete/";

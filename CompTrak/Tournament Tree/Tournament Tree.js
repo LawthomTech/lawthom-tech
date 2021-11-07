@@ -22,14 +22,14 @@ for (let i of document.getElementsByClassName("href-account")) {
 
 // New or Load
 if (tournamentId == 0) {
-    makeRequest("GET", ACTIVE_URL + API_CALLER + GET_TOURNAMENT + userId).then((value) => {
+    makeRequest("GET", GET_TOURNAMENT + API_CALLER, JSON.stringify({userId})).then((value) => {
         tournamentId = value[value.length-1].tournamentId++;
         sessionStorage.setItem("tournamentId", tournamentId);
         createMatches();
         createPage();
     })
 } else {
-    makeRequest("GET", ACTIVE_URL + API_CALLER + GET_MATCH + tournamentId).then((value) => {
+    makeRequest("GET", GET_MATCH + API_CALLER, JSON.stringify({tournamentId})).then((value) => {
         loadMatches(value);
         createPage();
     })
@@ -131,7 +131,7 @@ function createMatches() {
     // Post matches to database
     for (let row of matches) {
         for (let match of row) {
-            makeRequest("POST", ACTIVE_URL + API_CALLER + CRT_MATCH, JSON.stringify(match));
+            makeRequest("POST", CRT_MATCH + API_CALLER, JSON.stringify(match));
         }
     }
 }
@@ -281,14 +281,15 @@ function progressPlayer(row, col, player) {
 
     // Update Database
     let matchIds = [];
-    makeRequest("GET", ACTIVE_URL + API_CALLER + GET_MATCH + tournamentId).then((value) => {
+    makeRequest("GET", GET_MATCH + API_CALLER, JSON.stringify({tournamentId})).then((value) => {
         for (let dbMatch of value) {
             matchIds.push(dbMatch.matchId)
         }
         let matchIdCount = 0;
         for (let r in matches) {
             for (let c in matches[r]) {
-                makeRequest("POST", ACTIVE_URL + API_CALLER + UPD_MATCH + matchIds[matchIdCount], JSON.stringify(matches[r][c]));
+                matched[r][c].matchId = matchIds[matchIdCount];
+                makeRequest("PUT", UPD_MATCH + API_CALLER, JSON.stringify(matches[r][c]));
                 matchIdCount++;
             }
         } 
