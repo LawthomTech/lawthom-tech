@@ -4,7 +4,7 @@
       <script src="../Constants/Constants.js"></script>
       <script>
         const redirect_url = ACTIVE_DIR + HOME_HTML;
-        const url_params;
+        const url_params = "";
         if(location.href.includes("#")) {
           // Implicit Flow
           url_params = "#" + location.href.split("#")[1];
@@ -12,7 +12,6 @@
           // Code Flow
           url_params = "?" + location.href.split("?")[1];
         }
-        console.log(redirect_url + url_params);
         window.location = redirect_url + url_params;
       </script>
 
