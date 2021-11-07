@@ -12,7 +12,7 @@ const ACCOUNT_HTML = "Account/Account.html";
 const LOCAL_URL = "http://localhost:8080";
 const BASE_URL = "http://35.234.133.160:8081";
 const ACTIVE_URL = BASE_URL;
-const API_CALLER = "/JavaEE-Project-JackLawthom/api";
+const API_CALLER = ".execute-api.eu-west-2.amazonaws.com/prod/";
 
 const CRT_TOURNAMENT = "https://o86nrv235g";
 const DEL_TOURNAMENT = "https://qbsi45jdv4";
