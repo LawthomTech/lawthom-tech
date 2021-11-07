@@ -1,3 +1,6 @@
+// Set dummy user for development
+sessionStorage.setItem("userId", "auth0|61868c96d6e3f3006b56119d");
+
 let userId = sessionStorage.getItem("userId");
 if (!userId) {
     window.location = ACTIVE_DIR + LOGIN_HTML;
