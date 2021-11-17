@@ -7,7 +7,7 @@ if (!userId) {
 }
 
 let tournaments = [];
-makeRequest("GET", GET_TOURNAMENT + API_CALLER, JSON.stringify({userId})).then((value) => {
+makeRequest("POST", GET_TOURNAMENT + API_CALLER, JSON.stringify({userId})).then((value) => {
   tournaments = value;
   createPage()
 });
