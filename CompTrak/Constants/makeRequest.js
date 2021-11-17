@@ -16,6 +16,7 @@ function makeRequest(method, url, body) {
                 rej('Error: ' + req.responseText);
             }
         }
+        req.setRequestHeader('Referrer-Policy', 'no-referrer');
         req.open(method, url);
         if (body) {
             req.setRequestHeader('Content-Type', 'application/json');
