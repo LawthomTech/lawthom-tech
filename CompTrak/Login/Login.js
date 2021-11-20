@@ -25,7 +25,7 @@ function handleLogin(data) {
             console.log(val);
         } else {
             sessionStorage.setItem("userId", JSON.stringify(val));
-            window.location = ACTIVE_DIR + HOME_HTML;
+            window.location = active_dir + HOME_HTML;
         }
         })
     return false;
