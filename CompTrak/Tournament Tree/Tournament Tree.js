@@ -282,7 +282,7 @@ function progressPlayer(row, col, player) {
 
   // Update Database
   let matchIds = [];
-  makeRequest("GET", GET_MATCH + API_CALLER, JSON.stringify({ tournamentId })).then((value) => {
+  makeRequest("POST", GET_MATCH + API_CALLER, JSON.stringify({ tournamentId })).then((value) => {
     for (let dbMatch of value) {
       matchIds.push(dbMatch.matchId)
     }
