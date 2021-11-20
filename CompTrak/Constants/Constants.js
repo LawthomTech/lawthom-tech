@@ -1,6 +1,6 @@
 const LOCAL_DIR = "http://localhost:8080/lawthom-tech/CompTrak/";
 const BASE_DIR = "https://jlawthom.github.io/lawthom-tech/CompTrak/";
-const ACTIVE_DIR = BASE_DIR;
+let active_dir = BASE_DIR;
 const LOGIN_HTML = "Login/Login.html";
 const REGISTER_HTML = "Register/Register.html";
 const HOME_HTML = "Home%20Page/Home%20Page.html";

@@ -1,28 +1,32 @@
 let tournamentId = sessionStorage.getItem('tournamentId');
-let newTournament = sessionStorage.getItem('newTournament');
+let isNewTournament = sessionStorage.getItem('newTournament');
 let matches = [];
 let noOfColsMax = 1;
 let noOfRows = 1;
 let qualifyingMatches = 0;
 
+active_dir = location.href.split("Tournament")[0];
+console.log(active_dir);
+
 let userId = sessionStorage.getItem("userId");
 if (!userId) {
-  window.location = ACTIVE_DIR + LOGIN_HTML;
+  window.location = active_dir + LOGIN_HTML;
 }
 
 // Nav Paths
 for (let i of document.getElementsByClassName("href-home")) {
-  i.setAttribute("href", ACTIVE_DIR + HOME_HTML);
+  i.setAttribute("href", active_dir + HOME_HTML);
 }
 for (let i of document.getElementsByClassName("href-players")) {
   i.setAttribute("href", "#");
 }
 for (let i of document.getElementsByClassName("href-account")) {
-  i.setAttribute("href", ACTIVE_DIR + ACCOUNT_HTML);
+  i.setAttribute("href", active_dir + ACCOUNT_HTML);
 }
 
 // New or Load
-if (newTournament) {
+console.log("new tournament: " + isNewTournament);
+if (isNewTournament === "true") {
   makeRequest("GET", GET_TOURNAMENT + API_CALLER + "tournaments/" + userId).then((value) => {
     // tournamentId = value[value.length - 1].tournamentId++;
     // sessionStorage.setItem("tournamentId", tournamentId);

@@ -2,8 +2,10 @@
 let userId = btoa("auth0|61868c96d6e3f3006b56119d");
 sessionStorage.setItem("userId", userId);
 
+active_dir = location.href.split("Home")[0];
+console.log(active_dir);
 if (!userId) {
-  window.location = ACTIVE_DIR + LOGIN_HTML;
+  window.location = active_dir + LOGIN_HTML;
 }
 
 let tournaments = [];
@@ -14,10 +16,10 @@ makeRequest("GET", GET_TOURNAMENT + API_CALLER + "tournaments/" + userId).then((
 
 // Nav Paths
 for (let i of document.getElementsByClassName("href-home")) {
-  i.setAttribute("href", ACTIVE_DIR + HOME_HTML);
+  i.setAttribute("href", active_dir + HOME_HTML);
 }
 for (let i of document.getElementsByClassName("href-account")) {
-  i.setAttribute("href", ACTIVE_DIR + ACCOUNT_HTML);
+  i.setAttribute("href", active_dir + ACCOUNT_HTML);
 }
 
 function createPage() {
@@ -42,17 +44,18 @@ function deleteBtn(nameDiv) {
 function deleteTournament(delEl) {
   const tournamentId = JSON.parse(delEl.id).tournamentId;
   makeRequest("DELETE", DEL_TOURNAMENT + API_CALLER, JSON.stringify({tournamentId})).then(() => {
-    window.location.href = ACTIVE_DIR + HOME_HTML;
+    window.location.href = active_dir + HOME_HTML;
   })
 }
 
 function newTournament() {
   sessionStorage.setItem("noOfTournaments", tournaments.length);
-  window.location.href = ACTIVE_DIR + NEW_TOURNAMENT_TREE_HTML;
+  window.location.href = active_dir + NEW_TOURNAMENT_TREE_HTML;
 }
 
 function loadTournament(data) {
   console.log(data)
+  sessionStorage.setItem('newTournament', false);
   sessionStorage.setItem("tournamentId", JSON.stringify(JSON.parse(data.id).tournamentId));
-  window.location.href = ACTIVE_DIR + TOURNAMENT_TREE_HTML;
+  window.location.href = active_dir + TOURNAMENT_TREE_HTML;
 }
