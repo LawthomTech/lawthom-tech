@@ -6,7 +6,6 @@ let noOfRows = 1;
 let qualifyingMatches = 0;
 
 active_dir = location.href.split("Tournament")[0];
-console.log(active_dir);
 
 let userId = sessionStorage.getItem("userId");
 if (!userId) {
@@ -35,7 +34,7 @@ if (isNewTournament === "true") {
   })
 } else {
   makeRequest("POST", GET_MATCH + API_CALLER, JSON.stringify({ tournamentId })).then((value) => {
-    loadMatches(value);
+    loadMatches(value.body);
     createPage();
   })
 }
@@ -134,17 +133,21 @@ function createMatches() {
     matchCount++;
   }
 
+  console.log("CRT_MATCHES");
+  console.log(matches);
   // Post matches to database
   for (let row of matches) {
     for (let match of row) {
+      console.log(match);
       makeRequest("POST", CRT_MATCH + API_CALLER, JSON.stringify(match));
     }
   }
 }
 
 function loadMatches(data) {
+  console.log(data);
   let maxRow = 0;
-  for (let match of data.body) {
+  for (let match of data) {
     let row = match.treeRow;
     while (row > maxRow) {
       matches.push([]);
@@ -203,7 +206,6 @@ function createMatch(colDiv, match, id) {
   cardDiv = createEl("div", colDiv, null, null, "card my-scheme-secondary mb-3", null, "width: 9rem;");
   matchDiv = createEl("div", cardDiv, null, null, "card-header");
   listUl = createEl("ul", cardDiv, null, null, "list-group list-group-flush");
-
   matchDiv.innerText = match.roundLabel;
   if (match.roundLabel == "Final") {
     matchDiv.setAttribute('id', 'bodyFinal');
