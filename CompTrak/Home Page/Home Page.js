@@ -8,8 +8,8 @@ var getParameterByName = function(name, url) {
   return decodeURIComponent(results[2].replace(/\+/g, " "));
 };
 
-const authCode = getParameterByName('code', location.href);
-console.log(authCode);
+const jwt = getParameterByName('id_token', location.href);
+console.log(jwt);
 
 // Set dummy user for development
 // let userId = btoa("auth0|61868c96d6e3f3006b56119d");
