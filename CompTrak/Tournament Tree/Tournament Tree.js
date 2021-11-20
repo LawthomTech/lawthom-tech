@@ -285,7 +285,7 @@ function progressPlayer(row, col, player) {
   let matchIds = [];
   console.log("Posting!");
   makeRequest("POST", GET_MATCH + API_CALLER, JSON.stringify({ tournamentId })).then((value) => {
-    for (let dbMatch of value) {
+    for (let dbMatch of value.body) {
       matchIds.push(dbMatch.matchId)
     }
     let matchIdCount = 0;
