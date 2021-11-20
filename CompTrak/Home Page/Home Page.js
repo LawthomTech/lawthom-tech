@@ -12,7 +12,7 @@ const authCode = getParameterByName('code', location.href);
 console.log(authCode);
 
 // Set dummy user for development
-let userId = btoa("auth0|61868c96d6e3f3006b56119d");
+// let userId = btoa("auth0|61868c96d6e3f3006b56119d");
 sessionStorage.setItem("userId", userId);
 
 active_dir = location.href.split("Home")[0];
