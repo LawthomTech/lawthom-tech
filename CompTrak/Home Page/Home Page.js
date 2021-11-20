@@ -1,13 +1,13 @@
 // Set dummy user for development
-sessionStorage.setItem("userId", "auth0|61868c96d6e3f3006b56119d");
+let userId = btoa("auth0|61868c96d6e3f3006b56119d");
+sessionStorage.setItem("userId", userId);
 
-let userId = sessionStorage.getItem("userId");
 if (!userId) {
   window.location = ACTIVE_DIR + LOGIN_HTML;
 }
 
 let tournaments = [];
-makeRequest("GET", GET_TOURNAMENT + API_CALLER + "tournaments/" + btoa(userId)).then((value) => {
+makeRequest("GET", GET_TOURNAMENT + API_CALLER + "tournaments/" + userId).then((value) => {
   tournaments = value;
   createPage()
 });
