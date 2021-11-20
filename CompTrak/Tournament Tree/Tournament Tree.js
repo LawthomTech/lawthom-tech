@@ -1,4 +1,5 @@
 let tournamentId = sessionStorage.getItem('tournamentId');
+let newTournament = sessionStorage.getItem('newTournament');
 let matches = [];
 let noOfColsMax = 1;
 let noOfRows = 1;
@@ -21,7 +22,7 @@ for (let i of document.getElementsByClassName("href-account")) {
 }
 
 // New or Load
-if (tournamentId == 0) {
+if (newTournament) {
   makeRequest("GET", GET_TOURNAMENT + API_CALLER + "tournaments/" + userId).then((value) => {
     // tournamentId = value[value.length - 1].tournamentId++;
     // sessionStorage.setItem("tournamentId", tournamentId);
