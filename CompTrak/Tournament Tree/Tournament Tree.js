@@ -140,7 +140,7 @@ function createMatches() {
 
 function loadMatches(data) {
   let maxRow = 0;
-  for (let match of data) {
+  for (let match of data.body) {
     let row = match.treeRow;
     while (row > maxRow) {
       matches.push([]);
