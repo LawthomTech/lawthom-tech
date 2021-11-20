@@ -56,6 +56,6 @@ function newTournament() {
 function loadTournament(data) {
   console.log(data)
   sessionStorage.setItem('newTournament', false);
-  sessionStorage.setItem("tournamentId", JSON.stringify(JSON.parse(data.id).tournamentId));
+  sessionStorage.setItem("tournamentId", JSON.parse(data.id).tournamentId);
   window.location.href = active_dir + TOURNAMENT_TREE_HTML;
 }
