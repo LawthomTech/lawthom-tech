@@ -29,7 +29,7 @@ if (tournamentId == 0) {
     createPage();
   })
 } else {
-  makeRequest("GET", GET_MATCH + API_CALLER, JSON.stringify({ tournamentId })).then((value) => {
+  makeRequest("POST", GET_MATCH + API_CALLER, JSON.stringify({ tournamentId })).then((value) => {
     loadMatches(value);
     createPage();
   })
