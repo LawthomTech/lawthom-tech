@@ -23,8 +23,8 @@ for (let i of document.getElementsByClassName("href-account")) {
 // New or Load
 if (tournamentId == 0) {
   makeRequest("GET", GET_TOURNAMENT + API_CALLER + "tournaments/" + btoa(userId)).then((value) => {
-    tournamentId = value[value.length - 1].tournamentId++;
-    sessionStorage.setItem("tournamentId", tournamentId);
+    // tournamentId = value[value.length - 1].tournamentId++;
+    // sessionStorage.setItem("tournamentId", tournamentId);
     createMatches();
     createPage();
   })
