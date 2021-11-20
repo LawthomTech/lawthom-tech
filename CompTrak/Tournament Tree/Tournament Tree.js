@@ -291,7 +291,7 @@ function progressPlayer(row, col, player) {
     let matchIdCount = 0;
     for (let r in matches) {
       for (let c in matches[r]) {
-        matched[r][c].matchId = matchIds[matchIdCount];
+        matches[r][c].matchId = matchIds[matchIdCount];
         makeRequest("PUT", UPD_MATCH + API_CALLER, JSON.stringify(matches[r][c]));
         matchIdCount++;
       }
