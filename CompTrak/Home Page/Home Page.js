@@ -24,6 +24,14 @@ const jwtDecoded = parseJwt(jwt);
 console.log(jwt);
 console.log(jwtDecoded);
 
+let userId = "";
+if(jwtDecoded && jwtDecoded.sub) {
+  userId = btoa(jwtDecoded.sub);
+} else {
+  // TODO: Handle user id failure
+  console.log("NO USER ID");
+}
+
 // Set dummy user for development
 // let userId = btoa("auth0|61868c96d6e3f3006b56119d");
 sessionStorage.setItem("userId", userId);
