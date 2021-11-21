@@ -1,45 +1,48 @@
-var getParameterByName = function(name, url) {
+var getParameterByName = function (name, url) {
   if (!url) url = window.location.href;
   name = name.replace(/[\[\]]/g, "\\$&");
   var regex = new RegExp("[#?&]" + name + "(=([^&#]*)|&|#|$)"),
-      results = regex.exec(url);
+    results = regex.exec(url);
   if (!results) return null;
   if (!results[2]) return '';
   return decodeURIComponent(results[2].replace(/\+/g, " "));
 };
 
-function parseJwt (token) {
+function parseJwt(token) {
   var base64Url = token.split('.')[1];
   var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-  var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+  var jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
   }).join(''));
 
   return JSON.parse(jsonPayload);
 };
 
-const jwt = getParameterByName('id_token', location.href);
-const jwtDecoded = parseJwt(jwt);
+function getUserId() {
+  const jwt = getParameterByName('id_token', location.href);
+  const jwtDecoded = parseJwt(jwt);
 
-console.log(jwt);
-console.log(jwtDecoded);
+  console.log(jwt);
+  console.log(jwtDecoded);
 
-let userId = "";
-if(jwtDecoded && jwtDecoded.sub) {
-  userId = btoa(jwtDecoded.sub);
-} else {
+  if (jwtDecoded && jwtDecoded.sub) {
+    return btoa(jwtDecoded.sub);
+  }
   // TODO: Handle user id failure
   console.log("NO USER ID");
+  return null
 }
 
-// Set dummy user for development
-// let userId = btoa("auth0|61868c96d6e3f3006b56119d");
-sessionStorage.setItem("userId", userId);
-
 active_dir = location.href.split("Home")[0];
-console.log(active_dir);
-if (!userId) {
-  window.location = active_dir + LOGIN_HTML;
+
+let userId = sessionStorage.getItem('userId');
+if(!userId) {
+  try {
+    userId = getUserId();
+    sessionStorage.setItem("userId", userId);
+  } catch (err) {
+    window.location = active_dir + LOGIN_HTML;
+  }
 }
 
 let tournaments = [];
@@ -77,7 +80,7 @@ function deleteBtn(nameDiv) {
 
 function deleteTournament(delEl) {
   const tournamentId = JSON.parse(delEl.id).tournamentId;
-  makeRequest("DELETE", DEL_TOURNAMENT + API_CALLER, JSON.stringify({tournamentId})).then(() => {
+  makeRequest("DELETE", DEL_TOURNAMENT + API_CALLER, JSON.stringify({ tournamentId })).then(() => {
     window.location.href = active_dir + HOME_HTML;
   })
 }
