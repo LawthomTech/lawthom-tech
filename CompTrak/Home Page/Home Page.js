@@ -36,7 +36,7 @@ function getUserId() {
 active_dir = location.href.split("Home")[0];
 
 let isLoggedIn = sessionStorage.getItem('isLoggedIn');
-if(isLoggedIn === 'false') {
+if(!isLoggedIn || isLoggedIn === 'false') {
   window.location = active_dir + LOGIN_HTML;
 }
 

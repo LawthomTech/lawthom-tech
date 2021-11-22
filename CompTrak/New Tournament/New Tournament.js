@@ -5,7 +5,7 @@ let rowCount = 1;
 active_dir = location.href.split("New")[0];
 
 let isLoggedIn = sessionStorage.getItem('isLoggedIn');
-if(isLoggedIn === 'false') {
+if(!isLoggedIn || isLoggedIn === 'false') {
   window.location = active_dir + LOGIN_HTML;
 }
 
