@@ -1,3 +1,4 @@
+let userId = sessionStorage.getItem('userId');
 let playerCount = 0;
 let colCount = 1;
 let rowCount = 1;

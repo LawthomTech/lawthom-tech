@@ -1,4 +1,5 @@
 let tournamentId = sessionStorage.getItem('tournamentId');
+let userId = sessionStorage.getItem('userId');
 let isNewTournament = sessionStorage.getItem('newTournament');
 let matches = [];
 let noOfColsMax = 1;
