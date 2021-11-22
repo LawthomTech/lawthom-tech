@@ -1,4 +1,5 @@
 let isLoggedIn = sessionStorage.getItem('isLoggedIn');
+console.log(isLoggedIn);
 if(!isLoggedIn || isLoggedIn === 'false') {
   window.location = active_dir + LOGIN_HTML;
 }
