@@ -40,12 +40,12 @@ function deleteAccount() {
   //   signOut();
   // })
 
-  console.log(secret.AUTH0_CLIENT_SECRET);
+  console.log(secrets.AUTH0_CLIENT_SECRET);
 
   const management = new ManagementClient({
     domain: 'comp-trak.eu.auth0.com',
     clientId: 'NV7LrFn7vBYaK8JAVt9CQzx9p5uiUi6r',
-    clientSecret: secret.AUTH0_CLIENT_SECRET,
+    clientSecret: secrets.AUTH0_CLIENT_SECRET,
     scope: 'delete:users'
   })
 
