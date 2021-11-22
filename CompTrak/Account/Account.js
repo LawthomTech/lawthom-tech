@@ -40,8 +40,6 @@ function deleteAccount() {
   //   signOut();
   // })
 
-  const ManagementClient = require('auth0').ManagementClient
-
   console.log(secret.AUTH0_CLIENT_SECRET);
 
   const management = new ManagementClient({
