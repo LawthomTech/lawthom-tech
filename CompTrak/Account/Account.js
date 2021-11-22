@@ -56,5 +56,5 @@ function saveChanges() {
 
 function signOut() {
     sessionStorage.clear();
-    window.location = `https://comp-trak.eu.auth0.com/v2/logout?client_id=fW9ijlTpUUrYsg6L6PNjC5VQAnss9rdv&returnTo=${active_dir + LOGIN_HTML}`;
+    window.location = `https://comp-trak.eu.auth0.com/v2/logout?client_id=ogt7KVEGbqnJjQ6esP1WHF7m7gGD3Gf4&returnTo=${active_dir + LOGIN_HTML}`;
 }
