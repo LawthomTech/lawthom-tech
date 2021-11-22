@@ -1,7 +1,8 @@
-let userId = sessionStorage.getItem("userId");
-if (!userId) {
-    window.location = active_dir + LOGIN_HTML;
+let isLoggedIn = sessionStorage.getItem('isLoggedIn');
+if(isLoggedIn === 'false') {
+  window.location = active_dir + LOGIN_HTML;
 }
+
 // Nav Paths
 for (let i of document.getElementsByClassName("href-home")) {
     i.setAttribute("href", active_dir + HOME_HTML);

@@ -3,9 +3,9 @@ let colCount = 1;
 let rowCount = 1;
 
 active_dir = location.href.split("New")[0];
-console.log(active_dir);
-let userId = sessionStorage.getItem("userId");
-if (!userId) {
+
+let isLoggedIn = sessionStorage.getItem('isLoggedIn');
+if(isLoggedIn === 'false') {
   window.location = active_dir + LOGIN_HTML;
 }
 

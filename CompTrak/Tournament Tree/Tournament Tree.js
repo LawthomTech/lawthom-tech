@@ -7,8 +7,8 @@ let qualifyingMatches = 0;
 
 active_dir = location.href.split("Tournament")[0];
 
-let userId = sessionStorage.getItem("userId");
-if (!userId) {
+let isLoggedIn = sessionStorage.getItem('isLoggedIn');
+if(isLoggedIn === 'false') {
   window.location = active_dir + LOGIN_HTML;
 }
 
