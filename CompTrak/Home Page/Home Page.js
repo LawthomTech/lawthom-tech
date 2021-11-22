@@ -35,6 +35,11 @@ function getUserId() {
 
 active_dir = location.href.split("Home")[0];
 
+let isLoggedIn = sessionStorage.getItem('isLoggedIn');
+if(isLoggedIn === 'false') {
+  window.location = active_dir + LOGIN_HTML;
+}
+
 let userId = sessionStorage.getItem('userId');
 if(!userId) {
   try {
