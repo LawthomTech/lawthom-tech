@@ -44,6 +44,7 @@ let userId = sessionStorage.getItem('userId');
 if(!userId) {
   try {
     userId = getUserId();
+    sessionStorage.setItem("isLoggedIn", true);
     sessionStorage.setItem("userId", userId);
   } catch (err) {
     window.location = active_dir + LOGIN_HTML;
