@@ -36,9 +36,9 @@ function printUserDetails(data) {
 }
 
 function deleteAccount() {
-  makeRequest("DELETE", ACTIVE_URL + API_CALLER + DEL_USER + userId).then(() => {
-    signOut();
-  })
+  // makeRequest("DELETE", ACTIVE_URL + API_CALLER + DEL_USER + userId).then(() => {
+  //   signOut();
+  // })
 
   const ManagementClient = require('auth0').ManagementClient
 
