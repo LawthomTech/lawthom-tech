@@ -1,16 +1,16 @@
 let userId = sessionStorage.getItem("userId");
 if (!userId) {
-    window.location = ACTIVE_DIR + LOGIN_HTML;
+    window.location = active_dir + LOGIN_HTML;
 }
 // Nav Paths
 for (let i of document.getElementsByClassName("href-home")) {
-    i.setAttribute("href", ACTIVE_DIR + HOME_HTML);
+    i.setAttribute("href", active_dir + HOME_HTML);
 }
 
-makeRequest("GET", ACTIVE_URL + API_CALLER + GET_USR_BY_ID + userId).then((val) => {
-    const {password, userId, ...rest} = val;
-    printUserDetails(rest)
-})
+// makeRequest("GET", ACTIVE_URL + API_CALLER + GET_USR_BY_ID + userId).then((val) => {
+//     const {password, userId, ...rest} = val;
+//     printUserDetails(rest)
+// })
 
 let userDetails;
 
@@ -49,12 +49,12 @@ function saveChanges() {
     userData["password"] = "";
     console.log(userData);
 
-    makeRequest("POST", ACTIVE_URL + API_CALLER + UPD_USER + userId, JSON.stringify(userData)).then(() => {
-        window.location = ACTIVE_DIR + HOME_HTML;
-    })
+    // makeRequest("POST", ACTIVE_URL + API_CALLER + UPD_USER + userId, JSON.stringify(userData)).then(() => {
+    //     window.location = active_dir + HOME_HTML;
+    // })
 }
 
 function signOut() {
     sessionStorage.clear();
-    window.location = ACTIVE_DIR + LOGIN_HTML;
+    window.location = `https://comp-trak.eu.auth0.com/v2/logout?client_id=fW9ijlTpUUrYsg6L6PNjC5VQAnss9rdv&returnTo=${active_dir + LOGIN_HTML}`;
 }
