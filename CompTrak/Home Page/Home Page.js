@@ -50,6 +50,7 @@ function deleteTournament(delEl) {
 
 function newTournament() {
   sessionStorage.setItem("noOfTournaments", tournaments.length);
+  console.log(active_dir + NEW_TOURNAMENT_TREE_HTML);
   window.location.href = active_dir + NEW_TOURNAMENT_TREE_HTML;
 }
 
