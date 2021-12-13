@@ -1,5 +1,5 @@
 // Set redirect to Auth0 login
-window.location = AUTH_AUTHORIZATION_URL + "?response_type=" + AUTH_RESPONSE_TYPE + "&client_id=" + AUTH_CLIENT_ID + "&redirect_uri=" + AUTH_REDIRECT_URI;
+window.location = AUTH_AUTHORIZATION_URL + "?response_type=" + AUTH_RESPONSE_TYPE + "&client_id=" + AUTH_CLIENT_ID + "&redirect_uri=" + active_dir + HOME_HTML;
 
 function registerPage() {
     window.location = ACTIVE_DIR + REGISTER_HTML;

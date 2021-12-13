@@ -1,10 +1,9 @@
 const LOCAL_DIR = "http://localhost:8080/lawthom-tech/CompTrak/";
-const BASE_DIR = "https://jlawthom.github.io/lawthom-tech/CompTrak/";
+const BASE_DIR = "https://lawthom1410-comptrak-setup-dev-environments.netlify.app/";
 
 const AUTH_AUTHORIZATION_URL = "https://comp-trak.eu.auth0.com/authorize";
 const AUTH_RESPONSE_TYPE = "token";
 const AUTH_CLIENT_ID = "ogt7KVEGbqnJjQ6esP1WHF7m7gGD3Gf4";
-const AUTH_REDIRECT_URI = "https://jlawthom.github.io/lawthom-tech/CompTrak/Auth/Login_Redirect.html";
 
 let active_dir = BASE_DIR;
 const LOGIN_HTML = "Login/Login.html";
