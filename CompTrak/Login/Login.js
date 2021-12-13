@@ -1,5 +1,5 @@
 // Set redirect to Auth0 login
-window.location = "https://comp-trak.eu.auth0.com/authorize?response_type=token&client_id=ogt7KVEGbqnJjQ6esP1WHF7m7gGD3Gf4&redirect_uri=https://jlawthom.github.io/lawthom-tech/CompTrak/Auth/Login_Redirect.html";
+window.location = AUTH_AUTHORIZATION_URL + "?response_type=" + AUTH_RESPONSE_TYPE + "&client_id=" + AUTH_CLIENT_ID + "&redirect_uri=" + AUTH_REDIRECT_URI;
 
 function registerPage() {
     window.location = ACTIVE_DIR + REGISTER_HTML;
