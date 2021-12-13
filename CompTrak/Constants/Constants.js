@@ -7,6 +7,7 @@ const AUTH_CLIENT_ID = "ogt7KVEGbqnJjQ6esP1WHF7m7gGD3Gf4";
 
 let active_dir = BASE_DIR;
 const LOGIN_HTML = "Login/Login.html";
+const LOGIN_REDIRECT_HTML = "Auth/Login_Redirect.html";
 const REGISTER_HTML = "Register/Register.html";
 const HOME_HTML = "Home%20Page/Home%20Page.html";
 const NEW_TOURNAMENT_TREE_HTML = "New%20Tournament/New%20Tournament.html";
