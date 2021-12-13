@@ -1,5 +1,5 @@
 const LOCAL_DIR = "http://localhost:8080/lawthom-tech/CompTrak/";
-const BASE_DIR = "https://lawthom1410-comptrak-setup-dev-environments.netlify.app/";
+const BASE_DIR = "https://lawthom1410-comptrak-setup-dev-environments.netlify.app/CompTrak/";
 
 const AUTH_AUTHORIZATION_URL = "https://comp-trak.eu.auth0.com/authorize";
 const AUTH_RESPONSE_TYPE = "token";
