@@ -14,3 +14,7 @@ function comptrakPresentation() {
 function roboticArm(){
     window.location = "Robotic Arm 2/Home.html";
 }
+
+function automate() {
+    window.location = "https://automateai.app/"
+}
